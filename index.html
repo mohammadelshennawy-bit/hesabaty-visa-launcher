@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>حساباتي - فيزا | فتح التطبيق</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(145deg,#e9f1f6,#f7fafc);font-family:"Times New Roman",Tahoma,serif;color:#163a51;padding:22px}.panel{max-width:520px;width:100%;background:#fff;border-radius:22px;padding:44px 28px;text-align:center;box-shadow:0 14px 50px #173e5b18}.logo{font-size:56px}h1{font-size:38px;margin:12px 0}p{font-size:20px;line-height:1.8;color:#536c7c}.button{display:inline-block;margin:18px auto 6px;padding:16px 32px;background:#087f85;color:white;border-radius:14px;text-decoration:none;font:700 23px Tahoma,Arial,sans-serif}.button:hover{background:#08666a}.button[aria-disabled=true]{background:#8c9da3;pointer-events:none}.note{font-size:15px;color:#607482;margin-top:24px}
+</style>
+</head>
+<body>
+<main class="panel">
+<div class="logo" aria-hidden="true">🏦</div>
+<h1>حساباتي - فيزا</h1>
+<p>إدارة حسابات البنك الأهلي وبنك مصر في مكان واحد.</p>
+<a id="launch" class="button" href="#" aria-disabled="true">فتح التطبيق</a>
+<p class="note">يُفتح التطبيق عبر Google Apps Script. الدخول مسموح للحسابات المصرّح لها فقط.</p>
+</main>
+<script>
+// Paste the actual deployed /exec URL here. Do not paste a /dev or editor URL.
+const APPS_SCRIPT_EXEC_URL = 'PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE';
+const launch = document.getElementById('launch');
+try {
+  const target = new URL(APPS_SCRIPT_EXEC_URL);
+  if (target.protocol === 'https:' && target.hostname === 'script.google.com' && /^\/macros\/s\/[^/]+\/exec$/.test(target.pathname)) {
+    launch.href = target.href;
+    launch.removeAttribute('aria-disabled');
+    launch.rel = 'noopener noreferrer';
+  } else {
+    launch.textContent = 'يلزم ضبط رابط التطبيق أولًا';
+  }
+} catch (_) {
+  launch.textContent = 'يلزم ضبط رابط التطبيق أولًا';
+}
+</script>
+</body>
+</html>
